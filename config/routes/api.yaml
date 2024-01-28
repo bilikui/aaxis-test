@@ -1,0 +1,19 @@
+api_auth:
+    path: /api/auth/login
+    controller: App\Controller\Auth\LoginController
+    methods: POST
+
+product_create:
+    path: /api/products
+    controller: App\Controller\Product\CreateController
+    methods: POST
+
+product_update:
+    path: /api/products
+    controller: App\Controller\Product\UpdateController
+    methods: PUT
+
+product_list:
+    path: /api/products
+    controller: App\Controller\Product\ListController
+    methods: GET
