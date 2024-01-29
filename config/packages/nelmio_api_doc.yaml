@@ -1,0 +1,13 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Aaxis Test
+            version: 1.0.0
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        security:
+            - Bearer: []
