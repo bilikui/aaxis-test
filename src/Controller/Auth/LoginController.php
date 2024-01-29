@@ -13,14 +13,38 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LoginController extends AbstractController
 {   
-    /**
-     * List the rewards of the specified user.
+     /**
+     * Return the token bearer por an user 
      *
-     * This call takes into account all confirmed awards, but not pending or refused awards.
+     * @Route("/api/auth/login", methods={"POST"})
+     * @OA\Response(
+     *     response=200,
+     *     description="Returns the token of an user",
+     *     @OA\JsonContent(
+     *        type="array",
+     *        @OA\Items(
+     *            @OA\Property(
+     *                         property="username",
+     *                         type="string",
+     *                         example="aaxis"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="password",
+     *                         type="string",
+     *                         example="test"
+     *                      )
+     *            )
+     *        )
+     *     )
+     * )
+     * @OA\Parameter(
+     *     name="order",
+     *     in="query",
+     *     description="The field used to order rewards",
+     *     @OA\Schema(type="string")
+     * )
+     * @OA\Tag(name="Login")
      */
-    #[Route('/api/auth/login', methods: ['POST'])]
-    
-    #[OA\Tag(name: 'login')]
     public function __invoke(Request $request): JsonResponse
     {
         if ($request->get('username') == null || $request->get('password') == null) {
